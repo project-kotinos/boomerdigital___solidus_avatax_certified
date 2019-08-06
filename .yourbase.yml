@@ -7,6 +7,7 @@ build_targets:
     container: 
       image: yourbase/yb_ubuntu:18.04
     commands:
+        - apt-get update
         - apt-get install -y libmysqlclient-dev
         - bundle install --jobs=3 --retry=3
         - bundle exec rake
