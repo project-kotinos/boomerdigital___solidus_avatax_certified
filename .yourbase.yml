@@ -9,6 +9,9 @@ build_targets:
     commands:
         - chmod +x yourbased.sh
         - ./yourbased.sh
+    environment:
+        - SOLIDUS_BRANCH=v2.5
+        - DB=postgres
 ci:
   builds:
     - name: default
