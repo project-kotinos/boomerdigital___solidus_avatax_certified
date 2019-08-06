@@ -3,6 +3,10 @@
 source "https://rubygems.org"
 
 branch = 'master'
+
+gem 'execjs'
+gem 'therubyracer'
+
 gem 'avatax-ruby'
 gem "solidus", github: "solidusio/solidus", branch: branch
 gem "solidus_auth_devise", github: "solidusio/solidus_auth_devise"
