@@ -1,0 +1,16 @@
+dependencies:
+  build:
+    - ruby:2.6.2
+
+build_targets:
+  - name: default
+    container: 
+      image: yourbase/yb_ubuntu:18.04
+    commands:
+        - bundle install --jobs=3 --retry=3
+        - bundle exec rake
+        
+ci:
+  builds:
+    - name: default
+      build_target: default
