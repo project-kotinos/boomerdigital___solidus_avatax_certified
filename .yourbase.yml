@@ -11,7 +11,7 @@ build_targets:
         - ./yourbased.sh
     environment:
         - SOLIDUS_BRANCH=v2.5
-        - DB=postgres
+#         - DB=postgres
 ci:
   builds:
     - name: default
