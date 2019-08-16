@@ -13,7 +13,9 @@ export RACK_ENV=test
 export MERB_ENV=test
 export JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"
 
-apt-get install -y libmysqlclient-dev postgresql libpq-dev libfontconfig
+apt-get update && apt-get install -y tzdata mysql-client mysql-server postgresql libfontconfig
+
+
 
 #install phantomjs
 rm -rf $PWD/travis_phantomjs; mkdir -p $PWD/travis_phantomjs
