@@ -10,8 +10,24 @@ build_targets:
         - chmod +x yourbased.sh
         - ./yourbased.sh
     environment:
-        - SOLIDUS_BRANCH=v2.8
-        - DB=postgres
+      - SOLIDUS_BRANCH=v2.8 
+      - DB=postgres
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_HOST={{ .Containers.IP "db" }}
+      - DATABASE_URL=postgres://root:root@{{ .Containers.IP "db" }}:5432/solidus_easypost_solidus_test
+      - DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL=true
+    dependencies:
+      containers:
+        db:
+          image: postgres:9.4
+          environment:
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_USER=root
+            - POSTGRES_DB=solidus_easypost_solidus_test
+          port_check:
+            port: 5432
+            timeout: 45
 ci:
   builds:
     - name: default
